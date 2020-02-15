@@ -87,7 +87,7 @@ saveCommand storage dir command =
     FileBasedStorage -> appendFile (mkStorageFile dir) (show command <> "\n")
     SQLiteDatabase -> do
       let dbFile = T.pack $ mkDbFile dir
-      DB.runSqlite dbFile $ do DB.insert_ @DB.SqlBackend command
+      DB.runSqlite dbFile $ DB.insert_ @DB.SqlBackend command
 
 -- | Main server logic for Hastory Server.
 server :: Options -> ServerSettings -> Server HastoryAPI
@@ -146,8 +146,7 @@ createDirectoryIfMissing :: (MonadIO m, MonadLogger m) => FilePath -> m ()
 createDirectoryIfMissing dir = do
   directoryExists <- liftIO $ Dir.doesDirectoryExist dir
   if directoryExists
-    then do
-      logInfo $ "Data directory already in " <> T.pack dir <> "/. Not changing anything."
+    then logInfo $ "Data directory already in " <> T.pack dir <> "/. Not changing anything."
     else do
       logInfo $ "Data directory doesn't exist. Creating a new one at " <> T.pack dir <> "/."
       liftIO $ Dir.createDirectory dir
@@ -156,12 +155,11 @@ createDirectoryIfMissing dir = do
 reportStorageStatus :: (MonadUnliftIO m, MonadLogger m) => Options -> m ()
 reportStorageStatus Options {..} =
   case _oStorage of
-    FileBasedStorage -> do
-      createDirectoryIfMissing _oDataDirectory
+    FileBasedStorage -> createDirectoryIfMissing _oDataDirectory
     SQLiteDatabase -> do
       createDirectoryIfMissing _oDataDirectory
       let dbFile = T.pack $ mkDbFile _oDataDirectory
-      DB.runSqlite dbFile $ do DB.runMigration migrateAll
+      DB.runSqlite dbFile $ DB.runMigration migrateAll
       logInfo $ "Using " <> dbFile <> " as SQLite database. Data is synchronised."
 
 -- | Starts a webserver by reading command line flags.
