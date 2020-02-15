@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: aff55454a4e3cd45c997367fca7233634bc0735a7decd26a66e0487742b6e48b
+-- hash: 7c62c74633f3a3dfc1db804529e9bf79865f2395851a667bd07a56a901b5c767
 
 name:           hastory-server
 version:        0.0.0.0
@@ -31,7 +31,9 @@ library
     , base
     , bytestring
     , deepseq
+    , directory
     , exceptions
+    , filepath
     , hashable
     , hashable-time
     , hastory-data
@@ -42,6 +44,9 @@ library
     , optparse-applicative
     , path
     , path-io
+    , persistent
+    , persistent-sqlite
+    , persistent-template
     , random
     , safe
     , servant
@@ -49,6 +54,7 @@ library
     , text
     , time
     , unix
+    , unliftio-core
     , unordered-containers
     , validity
     , validity-path

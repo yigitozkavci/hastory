@@ -10,7 +10,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 2892
-      sha256: a9a454e717d6b948e8117e3e90cbc3ab8c9778cff7d465f06bbeff4ccca88ad5
+      sha256: 46cc1deca49f5a9b16034b5a56732c821835e34865108a61fb821e6e7c04d4dd
     name: genvalidity
     version: 0.9.1.0
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -26,7 +26,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1693
-      sha256: 05d3e5b9e075d607983cd65ab9baa862b2f0a3ba164134b7292e7099d456712a
+      sha256: 7ab8d1dcf06615245fe13feb15a17f2216627a34180e04dc686aaedbf80fb234
     name: genvalidity-aeson
     version: 0.3.0.0
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -42,7 +42,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1689
-      sha256: 74cf87141d955020d3ded6859f6e6e3c9ae275dc2a31fc703c584df8720f7147
+      sha256: bc6e4be90b23d19ca0d59852340f17bfd7eda622994b8676260d7dc58bcec2e6
     name: genvalidity-bytestring
     version: 0.5.0.0
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -58,7 +58,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 2327
-      sha256: 0bf94a9557d673ff95d3eb1c2e85f2803c5770b2c8a9efd55e1f851998aa2a97
+      sha256: fcd92a080ff037a1116e51952bc36666930bf45b6faab202fa67bd913c004d52
     name: genvalidity-containers
     version: 0.8.0.1
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -74,7 +74,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1384
-      sha256: 8f2996caae2c9d07174b7f2651baa4d00f9fe0a0fc5f35e7365dae299acf14a2
+      sha256: fd98bf48204493f734859ebb941298f56db03b3bbe9f740710ac60a02185b83c
     name: genvalidity-criterion
     version: 0.0.0.0
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -90,7 +90,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 3314
-      sha256: bd9cb5ade14d3d6a74e53f1219ccf98b6c0be701924ba98c0ee34586a89d1237
+      sha256: 808c974b46870757bbed109dbc2bef4168dadf11f39835afd2963718f5464297
     name: genvalidity-hspec
     version: 0.7.0.2
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -106,7 +106,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 2147
-      sha256: 093a09301e2060cae81b0def1660e9f84183b75751f444c8c37bc5aa2aa89dbb
+      sha256: 99bfa28cd99086bd78a433545cabe68f3325fce1fd60dc3adfeee569343c8410
     name: genvalidity-hspec-aeson
     version: 0.3.1.0
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -122,7 +122,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 2146
-      sha256: 334101605e1595e137711c6cb9307a167c1188c126a380ba1ce9cd9e5a0e924b
+      sha256: 48ad2a16d2b843c8ff0ff5f36e7cd6d1d8d4a2ebfeb12afe4cf701616cee7290
     name: genvalidity-hspec-binary
     version: 0.2.0.3
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -138,7 +138,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 2049
-      sha256: c456e2abd5beb200ca18c173ed5cc235d4f81cd8cce14f6587efbc840ecaf6e5
+      sha256: 6680901e6f39e3d4d06a300d26f32897939765805a31a95933b36bb9815d67df
     name: genvalidity-hspec-cereal
     version: 0.2.0.3
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -154,7 +154,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 2151
-      sha256: c3d2e44e6dca9e0cf615268dd215964fe1ce10a603e5eeb95542c1f9c474ac4e
+      sha256: b46a00c86efdedf64fb5a5676f321aec74cff8976b916b32e207571e4d5430f9
     name: genvalidity-hspec-hashable
     version: 0.2.0.4
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -170,7 +170,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 2052
-      sha256: 6f4c009d1af4927cbe47b18eb317bfd93a84e8f12055a944458972ede30f3cc5
+      sha256: f7a354e45707c38acc0d9885abea4cb8d1ee60b149b4dd5cabbd600d5004dc14
     name: genvalidity-hspec-optics
     version: 0.1.1.1
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -186,7 +186,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1951
-      sha256: 64916afd9edf0690b033e2bd7c70e02f55f41d0126c40c5332c9d7398a61b442
+      sha256: 08d8d391b3cb1d761202ef601949c4a543932432c0ea8dc9913fceac0308a53e
     name: genvalidity-path
     version: 0.3.0.2
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -202,7 +202,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 2367
-      sha256: d5e00ce6f03cc2ace7190adc41c6784f316b02d06758ad4ba55d108fe9abac93
+      sha256: 1593c44a60e1d833a023df370491622ba2fe583a9d0bac01175ee12452d92af1
     name: genvalidity-property
     version: 0.5.0.1
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -218,7 +218,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1648
-      sha256: ef8712f1e6015ef45892e539a0964db5335e4b7bb8a94ae0d59308ab3aa7ead5
+      sha256: 7b4d1333799377daf6e4b1ea0bd94c42076545d985e6984feabd7423a3048668
     name: genvalidity-scientific
     version: 0.2.1.0
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -234,7 +234,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1982
-      sha256: 4ce2e7abc2232e5c11433e8d15708824f7aff83c1b6ed8aeb2fba067f577cbac
+      sha256: ecb487586ab9c6a36ab95d8546c511e8df48c5cb91e7d47ac38ef00396cd7a9c
     name: genvalidity-text
     version: 0.7.0.1
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -250,7 +250,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1670
-      sha256: 5b43ac54d051dc2e86d751be709aa6d8c6160495b925932aac023f45b91dcbb8
+      sha256: b6a2982757b6f42119668ce25748466c421f08b376312d4c1ee2fb28ffa9494e
     name: genvalidity-time
     version: 0.2.1.1
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -266,7 +266,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1820
-      sha256: 1cc460f64080dec1c4547efd20026fc3b7f4904665daf725db392c7914a86125
+      sha256: 3347dda844bbf54187dc3e2a8835261ac25c6481881477f5710bee870c71cb73
     name: genvalidity-unordered-containers
     version: 0.3.0.0
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -282,7 +282,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1582
-      sha256: 327545ef51639990ecd6c895e5d25f76142bfc01873a2bf5fdb5f878ffcb1f52
+      sha256: bad5c9b377b719334f095abdfc2b8ed0373fbb4f3f8ea3e127f4b6e7c74a8dde
     name: genvalidity-uuid
     version: 0.1.0.2
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -298,7 +298,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1564
-      sha256: 33afacc733c67ecd5fd1eeb81c1af4e60d2dc47f54c2739f1fa039f5aceea2f7
+      sha256: 2775b420452edd4b6bb75d8dab68fd5872a2a6b40ad55ee976385ce7089fed39
     name: genvalidity-vector
     version: 0.3.0.0
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -314,7 +314,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 2660
-      sha256: 9a949b554a9d0906ee26596c9c43ce31ce8df4c7e6714d6f50b354aa41b8019f
+      sha256: 4eb51142002c5b3e4cc8502b7fdbc494a7ec165b18dddc1fa3dda9733c26df5c
     name: validity
     version: 0.9.0.2
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -330,7 +330,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1205
-      sha256: 20543183db4a7d2571a617366bdab386f853c483409d89956b263ef195bd5706
+      sha256: a1b18ec057f94d1b9f7b83dfef47ff35c28bef4bfc0966727619ce58f989257f
     name: validity-aeson
     version: 0.2.0.2
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -346,7 +346,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1102
-      sha256: 2413efa9fe2b7c4ebdc565b453b6c7b45a574e6ff9cd9c4e0d49ca087960981d
+      sha256: beba95fdbb626f79f3d8d9dcc3d79436b39f990af3c1ebf1e103092d168a86cd
     name: validity-bytestring
     version: 0.4.1.0
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -362,7 +362,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1241
-      sha256: c9b9e8751d21daadb0d8a7728eaa9b6446dd3ac6e59b8a4ee845c3e12f5c3561
+      sha256: 56bb653fd7ce46ea7fbe308abe1afc51964e9862dbbd7fc388021411f8ae6b2b
     name: validity-containers
     version: 0.5.0.0
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -378,7 +378,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1517
-      sha256: d5ff1ad2bd8f1f133c8f484e74d7cf8172c1d837f7ef5f3ff54ad2f33f552d2d
+      sha256: 158a32dd93dcdf2ccd60c275ce71d8125a20df1b71376c2c34f05ae8f1e9fd77
     name: validity-path
     version: 0.4.0.0
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -394,7 +394,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1046
-      sha256: f075dc34c67ccebdc4ae3c81828b3720582b9d64545abbd53ee2466c732acbf6
+      sha256: 9d6b936195aee4d740739ed537cfe7898ea4d7b9737fb09e0af5f10af6df56bf
     name: validity-primitive
     version: 0.0.0.0
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -410,7 +410,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1097
-      sha256: 8be488c08f02af0ce895687a613aff77e93594992d0ee30332f10cd600e3ff5d
+      sha256: 20f06c7481a1448257021f3f10896a407199d67cc69cd7e937ea3377ee392ef6
     name: validity-scientific
     version: 0.2.0.2
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -426,7 +426,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1084
-      sha256: 27f6707d6a76ed38feb7e21b401aa708ffd65b0936957cca2c31c8de40a77f7e
+      sha256: a8d2ff7aa6cec9daaecf5e6ea3b83ee6bf823418d134132af82fc6087d20d280
     name: validity-text
     version: 0.3.1.0
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -442,7 +442,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1204
-      sha256: 5950d8ec919a1b0f60e09e7ecf1f68ac9ce73d7cc45fbd248df006504a0b4f4e
+      sha256: dfe2f8e9be9da6a18b1674932c7a2d34ec18ec6dbfac994ddf4111b640466435
     name: validity-time
     version: 0.2.0.2
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -458,7 +458,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1230
-      sha256: 9d826a9060c47776eb12e5ec86fda0aa82a847aedef26acae0f6fcac2c1d6299
+      sha256: 1c9a52512e148dfa75af1a69238bafc559bbdd444e580ea953185d386a3060be
     name: validity-unordered-containers
     version: 0.2.0.2
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -474,7 +474,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1067
-      sha256: c660d8feb6161308925e54aed07fd396912f815fdef726de6e5a8b255bff157b
+      sha256: 32ab0f09c555d4cf78c383e3e7b494214c791c88c404809e2bca93845d07fd77
     name: validity-uuid
     version: 0.1.0.2
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5
@@ -490,7 +490,7 @@ packages:
     url: https://github.com/NorfairKing/validity/archive/04ef274e8be3595f5846645f5922791292653e03.tar.gz
     cabal-file:
       size: 1097
-      sha256: e69280939b4bfa40725c1c60ca32b9d5872b25ab4527bf738c5544eb6efd3968
+      sha256: f9df23108a8fe3315805c6528084578d6522c23d697e29dad2cf4b16359d0f75
     name: validity-vector
     version: 0.2.0.2
     sha256: ff95adc01a9845ee128035a3501002190652dd648b22fa7df43120b1a9cd41b5

@@ -27,31 +27,37 @@ library:
   - base
   - bytestring
   - deepseq
+  - directory
   - exceptions
+  - filepath
   - hashable
   - hashable-time
+  - hastory-data
   - hostname
+  - http-types
   - monad-logger
   - mtl
   - optparse-applicative
+  - optparse-applicative
   - path
   - path-io
+  - persistent
+  - persistent-sqlite
+  - persistent-template
+  - random
   - safe
+  - servant
+  - servant-server
   - text
   - time
   - unix
+  - unliftio-core
   - unordered-containers
   - validity
   - validity-path
   - validity-text
-  - warp
   - wai
-  - http-types
-  - servant
-  - servant-server
-  - optparse-applicative
-  - random
-  - hastory-data
+  - warp
 
 executables:
   hastory-server:

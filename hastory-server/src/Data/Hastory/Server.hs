@@ -1,4 +1,5 @@
 {-# LANGUAGE DataKinds #-}
+{-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE ScopedTypeVariables #-}
@@ -7,31 +8,37 @@
 module Data.Hastory.Server where
 
 import Control.Monad.IO.Class (MonadIO, liftIO)
+import Control.Monad.IO.Unlift (MonadUnliftIO)
 import Control.Monad.Logger (MonadLogger)
 import Control.Monad.Logger.CallStack (logInfo)
 import Data.Hastory.API
-import Data.Hastory.Types (Entry(..))
+import Data.Hastory.Types (Entry(..), migrateAll)
 import Data.Proxy (Proxy(..))
 import Data.Semigroup ((<>))
 import qualified Data.Text as T
+import qualified Database.Persist as DB
+import qualified Database.Persist.Sqlite as DB
 import qualified Network.HTTP.Types as HTTP
 import qualified Network.Wai as Wai
 import qualified Network.Wai.Handler.Warp as Warp
 import qualified Options.Applicative as A
 import Prelude
 import Servant
-import System.Posix.Files (fileExist)
+import qualified System.Directory as Dir
+import System.FilePath ((</>))
 import System.Random (newStdGen, randomRs)
 
 data Options =
   Options
     { _oPort :: Int
     -- ^ Port that will be used by the server.
-    , _oDataOutputFilePath :: FilePath
-      -- ^ Path of the file to which received commands will be appended.
+    , _oDataDirectory :: FilePath
+      -- ^ Path of the directory in which received commands will be stored.
     , _oLogFile :: Maybe String
       -- ^ If provided, server will log to this file. If not provided, server
       -- doesn't log anything by default.
+    , _oStorage :: DataStorage
+      -- ^ Which storage format to use (file-based storage, databases etc.).
     }
   deriving (Show, Eq)
 
@@ -47,14 +54,40 @@ newtype ServerSettings =
     }
   deriving (Show, Eq)
 
+-- | Alternatives for data storage. Server owner chooses how to store the data.
+data DataStorage
+  = FileBasedStorage
+  | SQLiteDatabase
+  deriving (Show, Eq)
+
 -- | Parser for the command line flags of Hastory Server.
 optParser :: A.ParserInfo Options
 optParser =
   A.info
     (Options <$> A.option A.auto (A.value 8080 <> A.showDefault <> A.long "port" <> A.short 'p') <*>
-     A.strOption (A.value ".hastory_data" <> A.long "data-directory" <> A.short 'd') <*>
-     A.option A.auto (A.value (Just "server.logs") <> A.long "log-output" <> A.short 'l'))
+     A.strOption (A.value "hastory_data" <> A.long "data-directory" <> A.short 'd') <*>
+     A.option A.auto (A.value (Just "server.logs") <> A.long "log-output" <> A.short 'l') <*>
+     A.option
+       (A.eitherReader dataStorageReader)
+       (A.value FileBasedStorage <>
+        A.showDefault <>
+        A.long "storage" <>
+        A.short 's' <> A.help "Which storage format to use for storing commands."))
     mempty
+  where
+    dataStorageReader :: String -> Either String DataStorage
+    dataStorageReader "file" = Right FileBasedStorage
+    dataStorageReader "sqlite_database" = Right SQLiteDatabase
+    dataStorageReader _ = Left "Only 'file' and 'sqlite_database' options are available."
+
+-- | Save command to the storage described in `DataStorage`.
+saveCommand :: DataStorage -> FilePath -> Entry -> IO ()
+saveCommand storage dir command =
+  case storage of
+    FileBasedStorage -> appendFile (mkStorageFile dir) (show command <> "\n")
+    SQLiteDatabase -> do
+      let dbFile = T.pack $ mkDbFile dir
+      DB.runSqlite dbFile $ do DB.insert_ @DB.SqlBackend command
 
 -- | Main server logic for Hastory Server.
 server :: Options -> ServerSettings -> Server HastoryAPI
@@ -62,7 +95,7 @@ server Options {..} ServerSettings {..} = sAppendCommand
   where
     sAppendCommand :: Maybe Token -> Entry -> Handler ()
     sAppendCommand (Just (Token token)) command
-      | token == _ssToken = liftIO $ appendFile _oDataOutputFilePath (show command <> "\n")
+      | token == _ssToken = liftIO $ saveCommand _oStorage _oDataDirectory command
       | otherwise = throwError $ err403 {errBody = "Invalid Token provided."}
     sAppendCommand Nothing _ =
       throwError $ err403 {errBody = tokenHeaderKey <> " header should exist."}
@@ -98,21 +131,45 @@ generateToken = T.pack . take tokenLength . randomRs ('a', 'z') <$> liftIO newSt
 reportPort :: MonadLogger m => Options -> m ()
 reportPort Options {..} = logInfo $ "Starting server on port " <> T.pack (show _oPort)
 
--- | Logs information about the data file. This data file serves as a database for this primitive append-only server.
-reportDataFileStatus :: (MonadIO m, MonadLogger m) => Options -> m ()
-reportDataFileStatus Options {..} = do
-  dataFileExists <- liftIO $ fileExist _oDataOutputFilePath
-  if dataFileExists
-    then logInfo $
-         "Data file exists at " <> T.pack _oDataOutputFilePath <> ". Appending commands to it."
-    else logInfo "Data file doesn't exist. Creating a new one."
+-- | We use a hardcoded file name for database. Path to database is chosen by the user.
+mkDbFile :: FilePath -> FilePath
+mkDbFile dir = dir </> "hastory.db"
+
+-- | We use a hardcoded file name for file data storage. Path to database is chosen by the user.
+mkStorageFile :: FilePath -> FilePath
+mkStorageFile = (</> "data.txt")
+
+-- | Creates directory if it cannot be found. Only difference between this
+-- function and `System.Directory.createDirectoryIfMissingSource` is that
+-- this function performs logging.
+createDirectoryIfMissing :: (MonadIO m, MonadLogger m) => FilePath -> m ()
+createDirectoryIfMissing dir = do
+  directoryExists <- liftIO $ Dir.doesDirectoryExist dir
+  if directoryExists
+    then do
+      logInfo $ "Data directory already in " <> T.pack dir <> "/. Not changing anything."
+    else do
+      logInfo $ "Data directory doesn't exist. Creating a new one at " <> T.pack dir <> "/."
+      liftIO $ Dir.createDirectory dir
+
+-- | Logs information about the data storage.
+reportStorageStatus :: (MonadUnliftIO m, MonadLogger m) => Options -> m ()
+reportStorageStatus Options {..} =
+  case _oStorage of
+    FileBasedStorage -> do
+      createDirectoryIfMissing _oDataDirectory
+    SQLiteDatabase -> do
+      createDirectoryIfMissing _oDataDirectory
+      let dbFile = T.pack $ mkDbFile _oDataDirectory
+      DB.runSqlite dbFile $ do DB.runMigration migrateAll
+      logInfo $ "Using " <> dbFile <> " as SQLite database. Data is synchronised."
 
 -- | Starts a webserver by reading command line flags.
-hastoryServer :: (MonadIO m, MonadLogger m) => m ()
+hastoryServer :: (MonadUnliftIO m, MonadLogger m) => m ()
 hastoryServer = do
   options@Options {..} <- liftIO $ A.execParser optParser
   reportPort options
-  reportDataFileStatus options
+  reportStorageStatus options
   token <- generateToken
   logInfo $ "Token: " <> token
   liftIO $ Warp.runSettings (mkWarpSettings options) (app options (ServerSettings token))
